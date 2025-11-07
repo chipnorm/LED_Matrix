@@ -7,7 +7,7 @@
 ChipNorm_LED_Matrix matrix(SPI_MOSI, SPI_CLK, SPI_CS); //Initialisiert die LED-Matrix (Objekt "matrix" der Klasse "ChipNorm_LED_Matrix" erstellt) 
 
 void setup() {
-    matrix.setBrightness(0); //Helligkeit einstellt (zwischen 0 und 15)
+    matrix.setBrightness(15); //Helligkeit einstellt (zwischen 0 und 15)
     matrix.clear();  // LED-Matrix Inhalt löschen
     matrix.update(); // LED-Matrix updaten
 }
@@ -26,7 +26,7 @@ void loop() {
 
   
     // Beispiel 2: Manueller Modus: Rahmen zeichnen
-    // (Segment, Spalte, Ansteuerung)
+    // (Segment, Zeile, Ansteuerung (Spalte) )
     matrix.write_manuell(0, 0, 0b11111111); // Digit 0: Alle an (Untere Zeile)
     matrix.write_manuell(0, 1, 0b10000001); // Digit 1: Rahmen links/rechts
     matrix.write_manuell(0, 2, 0b10000001); // Digit 2: Rahmen links/rechts
@@ -37,7 +37,7 @@ void loop() {
     matrix.write_manuell(0, 7, 0b11111111); // Digit 7: Alle an (Oberste Zeile)
 
 
-    delay(1000);
+    delay(2000);
 
     // Beispiel 3: Manuell den Inahalt nach links schieben
     for (int row = 0; row < 8; ++row) {
